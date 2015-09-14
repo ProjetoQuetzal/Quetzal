@@ -1,0 +1,23 @@
+<table>
+    <tr>
+        <th>Usuário</th>
+        <th>Email</th>
+    </tr>
+
+    <tr>
+        <td><%=@user.name%></td>
+        <td><%=@user.email%></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>Equipes que participa</th>
+    </tr>
+
+    <% @user.members.each do |u| %>
+        <tr>
+            <td>equipe: <%=u.team.name%></td>
+        </tr>
+    <%end%>
+</table>

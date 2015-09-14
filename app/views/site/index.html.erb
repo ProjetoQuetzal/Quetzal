@@ -1,0 +1,30 @@
+<h1>Bem vindo!
+<% if current_user %>
+    <%= current_user.name %>
+<% end %>
+</h1>
+
+<table>
+    <tr>
+        <th>Usuarios Cadastrados</th>
+    </tr>
+
+    <% @users.each do |user| %>
+        <tr>
+            <td><%=link_to user.name, controller: "users", action:"show", id:user %></td>
+        </tr>
+    <%end%>
+</table>
+
+<table>
+    <tr>
+        <th>Equipes Cadastradas</th>
+        <th>|</th>
+        <th><%= link_to "nova equipe", '/teams/new' %></th>
+    </tr>
+    <% @teams.each do |team| %>
+        <tr>
+            <td><%=team.name%></td>
+        </tr>
+    <%end%>
+</table>

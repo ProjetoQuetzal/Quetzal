@@ -1,0 +1,8 @@
+<h1>Criando uma nova equipe</h1>
+
+<%= form_for :team, url: '/teams' do |f| %>
+
+  Name: <%= f.text_field :name %><br/>
+  <%= f.submit "Submit" %>
+
+<% end %>
