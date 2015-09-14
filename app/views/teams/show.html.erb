@@ -1,0 +1,38 @@
+<table>
+    <tr>
+        <th>Equipe:</td>
+        <th>Projeto:</td>
+        <th>Equipe pai:</td>
+    </tr>
+
+    <tr>
+        <td><%=@team.name%></th>
+        <td>não possui</th>
+        <td>não possui</th>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Equipes Filhas:</td>
+    </tr>
+    <!-- <tr>
+        <th><%= link_to "adicionar equipe filha", '/teams/new' %></th>
+    </tr> -->
+    <% @team.children.each do |child| %>
+    <tr>
+        <td><%=child.name%></th>
+    </tr>
+    <% end %>
+</table>
+
+<table>
+    <tr>
+        <th>Membros Participantes:</td>
+    </tr>
+
+    <% @team.members.each do |member| %>
+    <tr>
+        <td><%=member.name%></th>
+    </tr>
+    <% end %>
+</table>

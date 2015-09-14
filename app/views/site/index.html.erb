@@ -24,7 +24,7 @@
     </tr>
     <% @teams.each do |team| %>
         <tr>
-            <td><%=team.name%></td>
+            <td><%=link_to team.name, controller: "teams", action:"show", id:team %></td>
         </tr>
     <%end%>
 </table>

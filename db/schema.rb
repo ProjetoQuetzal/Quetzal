@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150914035937) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
+    t.integer  "father_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

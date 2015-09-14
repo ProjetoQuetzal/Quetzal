@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/teams/new' => 'teams#new'
   post '/teams' => 'teams#create'
+  get '/teams/show/:id' => 'teams#show'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
