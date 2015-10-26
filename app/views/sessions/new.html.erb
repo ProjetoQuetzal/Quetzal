@@ -3,13 +3,12 @@
 <div class="title">
 <h1>Login</h1>
 </div>
-<%= form_tag '/login' do %>
+<%= form_for '/login' do |l| %>
 
-  <%= text_field_tag :email, "Insira o email" %> <br/>
-  <%= password_field_tag :password, "Insira sua senha" %> <br/>
-  <%= submit_tag "Login" %>
+  <%= l.text_field :email, :placeholder => "Insira o email" %> <br/>
+  <%= l.password_field :password, :placeholder => "Insira sua senha" %> <br/>
+  <%= l.submit "Login" %>
 
 <% end %>
-</div>
 </div>
 </div>

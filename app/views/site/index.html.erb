@@ -1,6 +1,5 @@
-<h1>Bem vindo!
-<% if current_user %>
-    <%= current_user.name %>
+<h1>Bem vindo, <% if current_user %>
+    <%= current_user.name %>!
 <% end %>
 </h1>
 
