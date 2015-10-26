@@ -1,9 +1,15 @@
+<div class="form">
+<div class="bkgd">
+<div class="title">
 <h1>Login</h1>
-
+</div>
 <%= form_tag '/login' do %>
 
-  Email: <%= text_field_tag :email %> <br/>
-  Password: <%= password_field_tag :password %> <br/>
-  <%= submit_tag "Submit" %>
+  <%= text_field_tag :email, "Insira o email" %> <br/>
+  <%= password_field_tag :password, "Insira sua senha" %> <br/>
+  <%= submit_tag "Login" %>
 
 <% end %>
+</div>
+</div>
+</div>
