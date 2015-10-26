@@ -1,0 +1,8 @@
+<h1>Alterando a equipe <% @team.name %></h1>
+
+<%= form_for(@team, :url => {:action => 'update', :id => @team.id}) do |f| %>
+
+  Name: <%= f.text_field :name %><br/>
+  <%= f.submit "Save" %>
+
+<% end %>

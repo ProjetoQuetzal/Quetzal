@@ -13,11 +13,19 @@ Rails.application.routes.draw do
 
   get '/teams/new' => 'teams#new'
   post '/teams' => 'teams#create'
-  get '/teams/show/:id' => 'teams#show'
+  get '/team/:id' => 'teams#show'
+  get '/team/:id/edit' => 'teams#edit'
+  post '/team/:id' => 'teams#update'
+  patch '/team/:id' => 'teams#update'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/show/:id' => 'users#show'
+  get '/users/:id/edit' => 'users#edit'
+  post '/users/:id' => 'users#update'
+  patch '/users/:id' => 'users#update'
+
+  get 'mermber/show/:id' => 'members#show'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

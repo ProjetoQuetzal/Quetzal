@@ -3,6 +3,7 @@
         <th>Equipe:</td>
         <th>Projeto:</td>
         <th>Equipe pai:</td>
+        <th><%= link_to 'Edit', :action => 'edit', :id => @team.id %></th>
     </tr>
 
     <tr>
@@ -32,7 +33,7 @@
 
     <% @team.members.each do |member| %>
     <tr>
-        <td><%=member.name%></th>
+        <td><%=link_to member.name, controller: "members", action:"show", id:member %></td>
     </tr>
     <% end %>
 </table>
