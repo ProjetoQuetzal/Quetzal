@@ -8,6 +8,15 @@
 	<%= form_for :user, url: '/users' do |f| %>
 
 		<%= f.text_field :name, :placeholder => "Insira seu nome" %><br/>
+
+		<%= fields_for :user_description do |d| %>
+			<%= d.text_field :last_name, :placeholder => "Insira seu sobrenome" %><br/>
+			<%= d.text_field :date_of_birth, :placeholder => "Insira sua data de nascimento" %><br/>
+			<%= d.text_field :registration, :placeholder => "Insira sua matrícula" %><br/>
+			<%= d.text_field :phone_number, :placeholder => "Insira seu telefone" %><br/>
+			<%= d.text_field :address, :placeholder => "Insira seu endereço" %><br/>
+		<% end %>	
+
 		<%= f.email_field :email, :placeholder => "Insira seu email" %> <br/>
 		<%= f.password_field :password, :placeholder => "Insira sua senha" %> <br/>
 		<%= f.password_field :password_confirmation, :placeholder => "Confirme sua senha" %><br/>
