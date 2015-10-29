@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-admin = Role.create(name: 'admin')
-member = Role.create(name: 'member')
-observer = Role.create(name: 'observer')
+# admin = Role.create(name: 'admin')
+# member = Role.create(name: 'member')
+# observer = Role.create(name: 'observer')

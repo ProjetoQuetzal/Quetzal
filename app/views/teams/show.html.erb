@@ -28,12 +28,23 @@
 
 <table>
     <tr>
-        <th>Membros Participantes:</td>
+        <th>Papeis:</td>
     </tr>
 
-    <% @team.members.each do |member| %>
+    <% @team.roles.each do |r| %>
     <tr>
-        <td><%=link_to member.name, controller: "members", action:"show", id:member %></td>
+        <td><%=r.title%></td>
+        <table>
+            <tr>
+                <th>Usuarios:</td>
+            </tr>
+
+            <% r.users.each do |u| %>
+            <tr>
+                <td><%=u.user_description.name%></td>
+            </tr>
+            <% end %>
+        </table>
     </tr>
     <% end %>
 </table>

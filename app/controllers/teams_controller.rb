@@ -8,13 +8,10 @@ class TeamsController < ApplicationController
   def create
       @user = current_user
       @team = Team.new(team_params)
+      @role_adm = RoleAdministrator.new(title: "admin")
+      @team.roles << @role_adm
       if @team.save
-          @member = Member.new(name:current_user.name)
-          @member.save
-          @role = Role.find_by(name:'admin')
-          @role.members << @member
-          @user.members << @member
-          @team.members << @member
+          @user.roles << @role_adm
           redirect_to '/index'
       else
           render "new"
