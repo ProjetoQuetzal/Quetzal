@@ -1,0 +1,17 @@
+<div class="form">
+<div class="bkgd">
+	
+	<div class="title">
+		<h2>Edite seus dados </h2>
+	</div>
+
+	<%= form_for(@user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+		<%= f.email_field :email, :placeholder => "Insira seu email" %> <br/>
+		<%= f.password_field :password, :placeholder => "Insira sua senha" %> <br/>
+		<%= f.password_field :password_confirmation, :placeholder => "Confirme sua senha" %><br/>
+		<%= f.submit "Enviar" %>
+
+<% end %>
+
+</div>
+</div>

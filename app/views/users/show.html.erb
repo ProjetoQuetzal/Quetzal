@@ -5,7 +5,7 @@
     </tr>
 
     <tr>
-        <td><%=@user.name%></td>
+        <td><%=@user.user_description.name%></td>
         <td><%=@user.email%></td>
     </tr>
 </table>
@@ -15,9 +15,5 @@
         <th>Equipes que participa</th>
     </tr>
 
-    <% @user.members.each do |u| %>
-        <tr>
-            <td>equipe: <%=u.team.name%></td>
-        </tr>
-    <%end%>
+ 
 </table>

@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 20151028214828) do
   end
 
   create_table "user_descriptions", force: :cascade do |t|
+    t.string   "name"
     t.string   "last_name"
-    t.integer  "date_of_birth"
-    t.integer  "registration"
-    t.integer  "phone_number"
+    t.string   "date_of_birth"
+    t.string   "registration"
+    t.string   "phone_number"
     t.string   "address"
     t.integer  "user_id"
     t.datetime "created_at",    null: false
@@ -45,7 +46,6 @@ ActiveRecord::Schema.define(version: 20151028214828) do
   add_index "user_descriptions", ["user_id"], name: "index_user_descriptions_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false

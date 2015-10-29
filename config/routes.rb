@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/show/:id' => 'users#show'
-
+  get '/users/edit/:id' => 'users#edit'
+  post '/users/:id' => 'users#update'
+  patch '/users/:id' => 'users#update'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

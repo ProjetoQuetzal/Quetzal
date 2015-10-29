@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
 
     def new
+        @user = User.new()
+        @user_description = @user.build_user_description
     end
 
     def create
-        user = User.new(user_params)
-        if user.save
-            session[:user_id] = user.id
-            @user_description = UserDescription.new(user_dcp_params)
-            @user_description.save
+        @user = User.new(user_params)
+        @user_description = @user.create_user_description(user_dcp_params)
+        if @user.save
+            session[:user_id] = @user.id
             redirect_to '/'
         else
             redirect_to '/signup'
@@ -35,10 +36,10 @@ class UsersController < ApplicationController
 private
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation)
     end
 
     def user_dcp_params
-        params.require(:user_description).permit(:last_name, :date_of_birth, :registration, :phone_number, :address)
+        params.require(:user_description).permit(:name, :last_name, :date_of_birth, :registration, :phone_number, :address)
     end
 end
