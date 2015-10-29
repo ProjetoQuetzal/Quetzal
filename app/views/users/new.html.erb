@@ -6,7 +6,7 @@
   Password: <%= f.password_field :password %> <br/>
   Password Confirmation: <%= f.password_field :password_confirmation %><br/>
 
-  <%=  f.fields_for :user_description do |d| %>
+  <%=  fields_for :user_description do |d| %>
     Name: <%= d.text_field :name%> <br/>
     Last name: <%= d.text_field :last_name%> <br/>
   <% end %>

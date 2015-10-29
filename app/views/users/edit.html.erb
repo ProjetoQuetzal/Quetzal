@@ -1,8 +1,7 @@
-<h1>Edit User <%= @user.name %>!</h1>
+<h1>Edit User <%= @user.email %>!</h1>
 
 <%= form_for(@user, :url => {:action => 'update', :id => @user.id}) do |f| %>
 
-  Name: <%= f.text_field :name %><br/>
   Email: <%= f.text_field :email %> <br/>
   Password: <%= f.password_field :password %> <br/>
   Password Confirmation: <%= f.password_field :password_confirmation %><br/>

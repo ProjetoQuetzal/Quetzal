@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def create
       @user = User.new(user_params)
-      @user_description = @user.create_user_description(params[:user_description])
+      @user_description = @user.create_user_description(user_description_params)
       if @user.save
           session[:user_id] = @user.id
           redirect_to '/'
