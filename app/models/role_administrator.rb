@@ -1,2 +1,3 @@
-class RoleAdministrator < ActiveRecord::Base
+class RoleAdministrator < Role
+  
 end

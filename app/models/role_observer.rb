@@ -1,0 +1,2 @@
+class RoleObserver < Role
+end
