@@ -17,6 +17,15 @@ Rails.application.routes.draw do
   get '/team/:id/edit' => 'teams#edit'
   post '/team/:id' => 'teams#update'
   patch '/team/:id' => 'teams#update'
+  get '/team/:id/manage_roles' => 'teams#manage_roles'
+
+
+
+  get '/role/:id' => 'roles#show'
+  get '/role/:id/edit' => 'roles#edit'
+  post '/role/:id' => 'roles#update'
+  patch '/role/:id' => 'roles#update'
+
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

@@ -1,0 +1,22 @@
+<h1>Gerenciando papeis e membros</h1>
+
+
+
+<table>
+    <tr>
+        <th>Listando membros inscritos</th>
+    </tr>
+
+    <% @team.roles.each do |role| %>
+        <tr>
+            <th>
+            Membros <%= role.title %>
+            </th>
+    	<% role.users.each do |user| %>
+	        <tr>
+	           		<td><%= user.user_description.name %></td>
+	        </tr>
+		<%end%>
+        </tr>
+    <%end%>
+</table>

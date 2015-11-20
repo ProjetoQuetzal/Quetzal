@@ -5,6 +5,7 @@ class CreateRoles < ActiveRecord::Migration
       t.string :title
       t.integer :father_id
       t.belongs_to :team, index: true
+      
       t.timestamps null: false
     end
   end

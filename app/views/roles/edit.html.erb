@@ -1,0 +1,18 @@
+<h1>Alterando o papel <% @role.title %> de <%= @role.team.name %></h1>
+
+<%= form_for(@role, :url => {:action => 'update', :id => @role.id}) do |f| %>
+
+	Name: <%= f.text_field :title %><br/>
+
+  <p>
+  	<% @users.each do |user| %>
+  	<div>
+  		<%= check_box_tag "role[user_ids][]", "#{user.id}", @role.users.include?(user) %>
+  		<%= user.user_description.name %>
+  	</div>
+  	<% end %>
+  </p>
+
+  <%= f.submit "Save" %>
+
+<% end %>
