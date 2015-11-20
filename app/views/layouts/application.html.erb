@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Quetzal</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<meta charset="utf-8">
+	<meta http-equiv="X-U-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quetzal</title>
+
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
 </head>
+
 <body>
+	<div class="container-fluid">
+		<header class"row">
 
-    <% if current_user %>
-        <%= link_to "Home", '/' %> | <%= current_user.email %> | <%= link_to "Edit", controller:"users", action:"edit", id:current_user.id %> | <%= link_to "Logout", '/logout' %>
-    <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-    <% end %>
+ 	   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    		<script src="js/bootstrap.min.js"></script>
 
-<%= yield %>
+  			<div class ="title"><h2>Projeto Quetzal	</h2></div>
 
+  		</header>
+
+  		<div class="row">
+  			<div role="main">
+    			<% if current_user %>
+        			<%= link_to "Home", '/' %> | <%= current_user.email %> | <%= link_to "Edit", controller:"users", action:"edit", id:current_user.id %> | <%= link_to "Logout", '/logout' %>
+    			<% else %>
+        			<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    			<% end %>
+
+				<%= yield %>
+			</div>
+		</div>
+
+		<footer class="row">
+			
+		</footer>
+	</div>   
 </body>
 </html>

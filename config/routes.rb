@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
 
   root to: 'site#index'
-
+  
+  get '/template' => 'site#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
