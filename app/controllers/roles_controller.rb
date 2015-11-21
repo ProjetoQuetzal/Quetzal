@@ -9,9 +9,12 @@ class RolesController < ApplicationController
   end
 
   def update
-  	# params[:role][:user_ids] ||= []
+  	#params[:role][:user_ids] ||= []
     @role = Role.find(params[:id])
-    if @role.update_attributes(role_params)
+    params[:user_ids].each do |u|
+    	@role.users << User.find(u)
+    end
+    if @role.save
     	flash[:notice] = 'Papel atualizado.'
       redirect_to :action => 'show', :id => @role.id
     else
@@ -22,7 +25,7 @@ class RolesController < ApplicationController
   private
 
   def role_params
-        params.require(:role).permit(:title, :user_ids)
+        params.require(:role).permit(:title)
     end
 
 end
