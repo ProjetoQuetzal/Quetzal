@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
 	has_one :user_description
 	accepts_nested_attributes_for :user_description
+
+	def to_s
+		self.user_description.name
+	end
 end

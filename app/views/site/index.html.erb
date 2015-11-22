@@ -10,7 +10,9 @@
 
     <% @users.each do |user| %>
         <tr>
-            <td><%=link_to user.user_description.name, controller: "users", action:"show", id:user %></td>
+
+            <td><%=link_to user, controller: "users", action:"show", id:user %></td>
+
         </tr>
     <%end%>
 </table>

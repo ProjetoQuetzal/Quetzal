@@ -3,30 +3,26 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-  root to: 'site#index'
-  
-  get '/template' => 'site#index'
+  root to: 'sessions#new'
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   get '/index' => 'site#index'
 
-  get '/team_:teamid/new' => 'teams#new'
+  get '/teams/new' => 'teams#new'
   post '/teams' => 'teams#create'
-  get '/team_:teamid' => 'teams#show'
-  get '/team_:teamid/edit' => 'teams#edit'
-  post '/team_:teamid' => 'teams#update'
-  patch '/team_:teamid' => 'teams#update'
-  get '/team_:teamid/manage_roles' => 'teams#manage_roles'
+  get '/team:teamid' => 'teams#show'
+  get '/team:teamid/edit' => 'teams#edit'
+  post '/team:teamid' => 'teams#update'
+  patch '/team:teamid' => 'teams#update'
+  get '/team:teamid/manageroles' => 'teams#manageroles'
 
-
-
-  get '/team_:teamid/role_:roleid' => 'roles#show'
-  get '/team_:teamid/role_:roleid/edit' => 'roles#edit'
-  post '/team_:teamid/role_:roleid' => 'roles#update'
-  patch '/team_:teamid/role_:roleid' => 'roles#update'
-
+  get '/team:teamid/role:roleid' => 'roles#show'
+  get '/team:teamid/role:roleid/edit' => 'roles#edit'
+  post '/team:teamid/role:roleid' => 'roles#update'
+  patch '/team:teamid/role:roleid' => 'roles#update'
 
   get '/operations' => 'operations#index'
   get '/operation/:id' => 'operations#show'
@@ -55,15 +51,13 @@ Rails.application.routes.draw do
   post '/users/:id' => 'users#update'
   patch '/users/:id' => 'users#update'
 
-  get 'mermber/show/:id' => 'members#show'
-
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
+  # Example of named route that can be invoked with purchaseurl(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
@@ -105,7 +99,7 @@ Rails.application.routes.draw do
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+  #     # (app/controllers/admin/productscontroller.rb)
   #     resources :products
   #   end
 end
