@@ -12,16 +12,50 @@ Rails.application.routes.draw do
 
   get '/index' => 'site#index'
 
-  get '/teams/new' => 'teams#new'
+  get '/team_:teamid/new' => 'teams#new'
   post '/teams' => 'teams#create'
-  get '/teams/show/:id' => 'teams#show'
+  get '/team_:teamid' => 'teams#show'
+  get '/team_:teamid/edit' => 'teams#edit'
+  post '/team_:teamid' => 'teams#update'
+  patch '/team_:teamid' => 'teams#update'
+  get '/team_:teamid/manage_roles' => 'teams#manage_roles'
+
+
+
+  get '/team_:teamid/role_:roleid' => 'roles#show'
+  get '/team_:teamid/role_:roleid/edit' => 'roles#edit'
+  post '/team_:teamid/role_:roleid' => 'roles#update'
+  patch '/team_:teamid/role_:roleid' => 'roles#update'
+
+
+  get '/operations' => 'operations#index'
+  get '/operation/:id' => 'operations#show'
+  get '/operation/:id/edit' => 'operations#edit'
+  post '/operation/:id' => 'operations#update'
+  patch '/operation/:id' => 'operations#update'
+
+  get '/permissions' => 'permissions#index'
+  get '/permission/:id' => 'permissions#show'
+  get '/permission/:id/edit' => 'permissions#edit'
+  post '/permission/:id' => 'permissions#update'
+  patch '/permission/:id' => 'permissions#update'
+
+  get '/assignments' => 'assignments#index'
+  get '/assignment/:id' => 'assignments#show'
+  get '/assignment/:id/edit' => 'assignments#edit'
+  post '/assignment/:id' => 'assignments#update'
+  patch '/assignment/:id' => 'assignments#update'
+
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/show/:id' => 'users#show'
+
   get '/users/edit/:id' => 'users#edit'
   post '/users/:id' => 'users#update'
   patch '/users/:id' => 'users#update'
+
+  get 'mermber/show/:id' => 'members#show'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

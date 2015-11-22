@@ -1,0 +1,14 @@
+
+<h1>Papel <%= @role.title %>  da equipe <%= @role.team.name %></h1>
+<table>
+    <tr>
+        <th>Membro</th>
+    </tr>
+
+    <tr>
+        <% @role.users.each do |u| %>
+                <td><%=u.user_description.name%></td>
+            <% end %>
+    </tr>
+</table>
+

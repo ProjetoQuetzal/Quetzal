@@ -4,10 +4,9 @@
 <div id="main" class="container-fluid">
   <h3 class="page-header">Crie sua conta</h3
 
+
   <form action="Enviar">	
   <hr/>
-
-
 		<%= form_for :user, url: '/users' do |f| %>
 		<%= fields_for :user_description do |d| %>
 		<div class="row">

@@ -1,0 +1,22 @@
+
+<h1>Operation Show</h1>
+
+<table>
+	<tr>
+		<td> <%= @operation.name %> </td>
+    	<td><%=link_to "edit", :controller => :operations, :action => :edit, :id => @operation.id %></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>Permissoes</th>
+    </tr>
+	   <% @operation.roles.where("role_id < ?", 4).each do |role| %>
+    <tr>
+        
+        	<td><%=role.title%></td>
+  
+    </tr>
+    <% end %>
+</table>

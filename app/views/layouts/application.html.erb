@@ -44,7 +44,6 @@
     </div>
   </div>
 </nav>
-
     			<% if current_user %>
         			<%= link_to "Home", '/' %> | <%= current_user.email %> | <%= link_to "Edit", controller:"users", action:"edit", id:current_user.id %> | <%= link_to "Logout", '/logout' %>
     			<% else %>

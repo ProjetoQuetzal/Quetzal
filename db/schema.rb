@@ -11,18 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028214828) do
+ActiveRecord::Schema.define(version: 20151122174632) do
 
-  create_table "members", force: :cascade do |t|
-    t.string   "name"
+  create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "assignments", ["role_id"], name: "index_assignments_on_role_id"
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
+
+  create_table "operations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "operations", ["name"], name: "index_operations_on_name"
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "role_id"
+    t.integer  "operation_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "permissions", ["operation_id"], name: "index_permissions_on_operation_id"
+  add_index "permissions", ["role_id"], name: "index_permissions_on_role_id"
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "type"
+    t.string   "title"
+    t.integer  "father_id"
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "members", ["team_id"], name: "index_members_on_team_id"
-  add_index "members", ["user_id"], name: "index_members_on_user_id"
+  add_index "roles", ["team_id"], name: "index_roles_on_team_id"
+  add_index "roles", ["title"], name: "index_roles_on_title"
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"

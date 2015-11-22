@@ -1,5 +1,5 @@
-<h1>Bem vindo, <% if current_user %>
-    <%= current_user.user_description.name %> !
+<h1>Bem vindo<% if current_user %>,
+  <%= current_user.user_description.name %>!
 <% end %>
 </h1>
 
@@ -19,11 +19,11 @@
     <tr>
         <th>Equipes Cadastradas</th>
         <th>|</th>
-        <th><%= link_to "nova equipe", '/teams/new' %></th>
+        <th><%= link_to "nova equipe", :controller => 'teams', :action => 'new'  %></th>
     </tr>
     <% @teams.each do |team| %>
         <tr>
-            <td><%=link_to team.name, controller: "teams", action:"show", id:team %></td>
+            <td><%=link_to team.name, controller: "teams", action:"show", teamid:team %></td>
         </tr>
     <%end%>
 </table>
