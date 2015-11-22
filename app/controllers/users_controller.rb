@@ -10,7 +10,12 @@ class UsersController < ApplicationController
       @user_description = @user.create_user_description(user_description_params)
       if @user.save
           session[:user_id] = @user.id
-          redirect_to '/'
+
+          if Team.all.exists?(1)
+            redirect_to '/'
+          else
+            redirect_to :controller => 'teams', :action => 'new', :teamid => nil
+          end
       else
           redirect_to '/signup'
       end
