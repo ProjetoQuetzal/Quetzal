@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user_description = @user.build_user_description
-    UserMailer.registration_confirmation(@user).deliver
   end
 
   def create
