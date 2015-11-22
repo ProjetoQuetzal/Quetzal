@@ -3,12 +3,14 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user_description = @user.build_user_description
+    UserMailer.registration_confirmation(@user).deliver
   end
 
   def create
       @user = User.new(user_params)
       @user_description = @user.create_user_description(user_description_params)
       if @user.save
+          UserMailer.registration_confirmation(@user).deliver
           session[:user_id] = @user.id
 
           if Team.all.exists?(1)
