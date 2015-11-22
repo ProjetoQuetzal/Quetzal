@@ -1,0 +1,29 @@
+<h1>Permissões</h1>
+
+<table>
+
+	<tr>
+		<th>
+			Operação
+		</th>
+		<th>
+			Papel
+		</th>
+		<th>
+			Time
+		</th>
+	</tr>
+	<% @permissions.each do |p| %>
+	<tr>
+		<td>
+			<%= p.operation %>
+		</td>
+		<td>
+			<%= p.role %>
+		</td>
+		<td>
+			<%= p.role.team %>
+		</td>
+	</tr>
+	<% end %>
+</table>

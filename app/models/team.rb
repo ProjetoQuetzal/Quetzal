@@ -5,10 +5,6 @@ class Team < ActiveRecord::Base
     has_many :roles
     has_many :users, -> {uniq}, through: :roles
 
-
-    
-
-
     def update_roles
 
     end
@@ -19,6 +15,10 @@ class Team < ActiveRecord::Base
             retorno = (retorno or role.has_permission?(role.id, userid))        
         end
         return retorno
+    end
+
+    def to_s
+        self.name
     end
 
 end

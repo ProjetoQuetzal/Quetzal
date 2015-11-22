@@ -1,14 +1,14 @@
-<h1>Alterando o papel <% @role.title %> de <%= @role.team.name %></h1>
+<h1>Alterando a operacao <% @operation.name %></h1>
 
-<%= form_for(:role, :url => {:action => 'update'}) do |f| %>
+<%= form_for(:operation, :url => {:action => 'update'}) do |f| %>
 
-	Name: <%= f.text_field :title %><br/>
+	Name: <%= f.text_field :name %><br/>
 
   <p>
-  	<% @users.each do |user| %>
+  	<% @roles.each do |role| %>
   	<div>
-  		<%= check_box_tag "user_ids[]", user.id, @role.users.include?(user) %>
-  		<%= user.user_description.name %>
+  		<%= check_box_tag "role_titles[]", role.title, @operation.roles.include?(role) %>
+  		<%= role.title %>
   	</div>
   	<% end %>
   </p>
