@@ -5,10 +5,6 @@ class Team < ActiveRecord::Base
     has_many :roles
     has_many :users, -> {uniq}, through: :roles
 
-
-    
-
-
     def update_roles
 
     end

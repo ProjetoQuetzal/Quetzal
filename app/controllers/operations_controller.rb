@@ -14,6 +14,7 @@ class OperationsController < ApplicationController
 
 	def edit
 		@operation = Operation.find(params[:id])
+		@roles = [Role.find(1), Role.find(2), Role.find(3)]
 	end
 
 	def create
@@ -21,9 +22,15 @@ class OperationsController < ApplicationController
 	end
 
 	def update
-		@operation = Operation.find(params[:id])
+		params[:role_titles] ||= []
+	    @operation = Operation.find(params[:id])
+	    @operation.roles.delete_all
 
-	    if @operation.update(operations_params)
+	    params[:role_titles].each do |title|
+	    	@operation.roles << Role.where(:title => title)
+	    end
+
+	    if @operation.save
 	      redirect_to :action => 'show', :id => @operation.id
 	    else
 	      render 'edit'
