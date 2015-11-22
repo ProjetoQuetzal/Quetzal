@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :require_user
-  before_action do has_permission?(:teamid)
-  end
+  # before_action do has_permission?(:teamid)
+  # end
 
   def new
       @team = Team.new
@@ -9,16 +9,14 @@ class TeamsController < ApplicationController
 
   def create
       @user = current_user
+      params[:father_id] ||= nil
       @team = Team.new(team_params)
-      @role_adm = RoleAdministrator.new(title: "admin")
-      @role_mb = RoleMember.new(title: "member")
-      @role_obs = RoleObserver.new(title: "observer")
-      @team.roles << @role_adm
-      @team.roles << @role_mb
-      @team.roles << @role_obs
+
+      @team.create_roles
+
       if @team.save
-          @user.roles << @role_adm
-          redirect_to '/index'
+          @user.roles << @team.roles.first
+          redirect_to :controller => 'teams', :action => 'show', :teamid => @team.id
       else
           render "new"
       end
@@ -56,10 +54,27 @@ class TeamsController < ApplicationController
     @role_mb << user
   end
 
+  def first_team
+    params[:father_id] ||= nil
+      @team = Team.new(team_params)
+      @role_adm = RoleAdministrator.new(title: "admin")
+      @role_mb = RoleMember.new(title: "member")
+      @role_obs = RoleObserver.new(title: "observer")
+      @team.roles << @role_adm
+      @team.roles << @role_mb
+      @team.roles << @role_obs
+      if @team.save
+          @user.roles << @role_adm
+          redirect_to '/index'
+      else
+          render "new"
+      end
+  end
+
 private
 
     def team_params
-        params.require(:team).permit(:name)
+        params.require(:team).permit(:name, :father_id)
     end
 
 end

@@ -12,7 +12,12 @@ class UsersController < ApplicationController
       if @user.save
           UserMailer.registration_confirmation(@user).deliver
           session[:user_id] = @user.id
-          redirect_to '/'
+
+          if Team.all.exists?(1)
+            redirect_to '/'
+          else
+            redirect_to :controller => 'teams', :action => 'new', :teamid => nil
+          end
       else
           redirect_to '/signup'
       end
