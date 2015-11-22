@@ -1,0 +1,2 @@
+class RoleMember < Role
+end

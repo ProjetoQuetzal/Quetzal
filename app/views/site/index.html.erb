@@ -1,6 +1,5 @@
-<h1>Bem vindo!
-<% if current_user %>
-    <%= current_user.name %>
+<h1>Bem vindo<% if current_user %>,
+  <%= current_user.user_description.name %>!
 <% end %>
 </h1>
 
@@ -11,7 +10,7 @@
 
     <% @users.each do |user| %>
         <tr>
-            <td><%=link_to user.name, controller: "users", action:"show", id:user %></td>
+            <td><%=link_to user.email, controller: "users", action:"show", id:user %></td>
         </tr>
     <%end%>
 </table>

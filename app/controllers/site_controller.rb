@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-    before_filter :authorize
+    before_action :require_user
 
     def index
         @users = User.all

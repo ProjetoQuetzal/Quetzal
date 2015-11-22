@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# admin = Role.create(name: 'admin')
+# member = Role.create(name: 'member')
+# observer = Role.create(name: 'observer')

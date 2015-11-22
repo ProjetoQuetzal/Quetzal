@@ -3,6 +3,7 @@
         <th>Equipe:</td>
         <th>Projeto:</td>
         <th>Equipe pai:</td>
+        <th><%= link_to 'Edit', :action => 'edit', :id => @team.id %></th>
     </tr>
 
     <tr>
@@ -27,12 +28,23 @@
 
 <table>
     <tr>
-        <th>Membros Participantes:</td>
+        <th>Papeis:</td>
     </tr>
 
-    <% @team.members.each do |member| %>
+    <% @team.roles.each do |r| %>
     <tr>
-        <td><%=member.name%></th>
+        <td><%=r.title%></td>
+        <table>
+            <tr>
+                <th>Usuarios:</td>
+            </tr>
+
+            <% r.users.each do |u| %>
+            <tr>
+                <td><%=u.user_description.name%></td>
+            </tr>
+            <% end %>
+        </table>
     </tr>
     <% end %>
 </table>
