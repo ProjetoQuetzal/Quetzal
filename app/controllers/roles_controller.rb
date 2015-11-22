@@ -1,16 +1,16 @@
 class RolesController < ApplicationController
   def show
-  	@role = Role.find(params[:id])
+  	@role = Role.find(params[:roleid].to_i*params[:teamid].to_i)
   end
 
    def edit
-    @role = Role.find(params[:id])
+    @role = Role.find(params[:roleid].to_i*params[:teamid].to_i)
     @users = User.all
   end
 
   def update
   	params[:user_ids] ||= []
-    @role = Role.find(params[:id])
+    @role = Role.find(params[:roleid].to_i*params[:teamid].to_i)
     @role.users.delete_all
 
     params[:user_ids].each do |u|
@@ -18,8 +18,7 @@ class RolesController < ApplicationController
     end
     @role.team.update_roles
     if @role.save
-    	flash[:notice] = 'Papel atualizado.'
-      redirect_to :action => 'show', :id => @role.id
+      redirect_to :action => 'show', :roleid => @role.id
     else
       render 'edit'
     end

@@ -1,9 +1,10 @@
+<h1> Controller: <%= @ctrl %> e action: <%= @act%> </h1>
 <table>
     <tr>
         <th>Equipe:</td>
         <th>Projeto:</td>
         <th>Equipe pai:</td>
-        <th><%= link_to 'Edit', :action => 'edit', :id => @team.id %></th>
+        <th><%= link_to 'Edit', :action => 'edit', :teamid => @team.id %></th>
     </tr>
 
     <tr>

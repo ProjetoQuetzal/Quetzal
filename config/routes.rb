@@ -11,20 +11,20 @@ Rails.application.routes.draw do
 
   get '/index' => 'site#index'
 
-  get '/teams/new' => 'teams#new'
+  get '/team_:teamid/new' => 'teams#new'
   post '/teams' => 'teams#create'
-  get '/team/:id' => 'teams#show'
-  get '/team/:id/edit' => 'teams#edit'
-  post '/team/:id' => 'teams#update'
-  patch '/team/:id' => 'teams#update'
-  get '/team/:id/manage_roles' => 'teams#manage_roles'
+  get '/team_:teamid' => 'teams#show'
+  get '/team_:teamid/edit' => 'teams#edit'
+  post '/team_:teamid' => 'teams#update'
+  patch '/team_:teamid' => 'teams#update'
+  get '/team_:teamid/manage_roles' => 'teams#manage_roles'
 
 
 
-  get '/role/:id' => 'roles#show'
-  get '/role/:id/edit' => 'roles#edit'
-  post '/role/:id' => 'roles#update'
-  patch '/role/:id' => 'roles#update'
+  get '/team_:teamid/role_:roleid' => 'roles#show'
+  get '/team_:teamid/role_:roleid/edit' => 'roles#edit'
+  post '/team_:teamid/role_:roleid' => 'roles#update'
+  patch '/team_:teamid/role_:roleid' => 'roles#update'
 
 
   get '/signup' => 'users#new'

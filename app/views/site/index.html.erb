@@ -23,7 +23,7 @@
     </tr>
     <% @teams.each do |team| %>
         <tr>
-            <td><%=link_to team.name, controller: "teams", action:"show", id:team %></td>
+            <td><%=link_to team.name, controller: "teams", action:"show", teamid:team %></td>
         </tr>
     <%end%>
 </table>
