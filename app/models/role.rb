@@ -10,4 +10,9 @@ class Role < ActiveRecord::Base
 
   belongs_to :team
 
+
+  def to_s
+  	self.title
+  end
+
 end

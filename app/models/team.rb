@@ -17,4 +17,8 @@ class Team < ActiveRecord::Base
         return retorno
     end
 
+    def to_s
+        self.name
+    end
+
 end
