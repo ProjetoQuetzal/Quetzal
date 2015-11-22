@@ -1,6 +1,15 @@
 class RolesController < ApplicationController
+
+  def index
+    @roles = Role.all
+  end
+
   def show
   	@role = Role.find(params[:roleid].to_i*params[:teamid].to_i)
+  end
+
+  def new
+    @roles = Role.new
   end
 
    def edit
@@ -22,6 +31,11 @@ class RolesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @role = Role.find(params[:id])
+    @role.destroy
   end
 
   private

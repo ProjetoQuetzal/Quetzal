@@ -27,6 +27,25 @@ Rails.application.routes.draw do
   patch '/team_:teamid/role_:roleid' => 'roles#update'
 
 
+  get '/operations' => 'operations#index'
+  get '/operation/:id' => 'operations#show'
+  get '/operation/:id/edit' => 'operations#edit'
+  post '/operation/:id' => 'operations#update'
+  patch '/operation/:id' => 'operations#update'
+
+  get '/permissions' => 'permissions#index'
+  get '/permission/:id' => 'permissions#show'
+  get '/permission/:id/edit' => 'permissions#edit'
+  post '/permission/:id' => 'permissions#update'
+  patch '/permission/:id' => 'permissions#update'
+
+  get '/assignments' => 'assignments#index'
+  get '/assignment/:id' => 'assignments#show'
+  get '/assignment/:id/edit' => 'assignments#edit'
+  post '/assignment/:id' => 'assignments#update'
+  patch '/assignment/:id' => 'assignments#update'
+
+
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/show/:id' => 'users#show'

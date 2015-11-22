@@ -1,0 +1,16 @@
+
+<h1>Operation Show</h1>
+
+<%= @operation.name %>
+
+<table>
+    <tr>
+        <th>Permissoes</th>
+    </tr>
+
+    <tr>
+        <% @role.users.each do |u| %>
+                <td><%=u.user_description.name%></td>
+            <% end %>
+    </tr>
+</table>
