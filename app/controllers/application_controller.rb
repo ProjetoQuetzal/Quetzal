@@ -13,16 +13,13 @@ class ApplicationController < ActionController::Base
       redirect_to '/login' unless current_user
   end
 
-  def require_admin team
-    redirect_to '/' unless current_user.member.admin?
-  end
+  # def require_admin team
+  #   redirect_to '/' unless current_user.member.admin?
+  # end
 
-  def require_member team
-    redirect_to '/' unless current_user.member.member?
+  def has_permission?(teamid)
+    redirect_to '/' unless Team.find(params[:teamid]).has_permission?(params[:teamid], current_user.id)
   end
-
-  def require_observer team
-    redirect_to '/' unless current_user.member.observer?
-  end
+  
 
 end
