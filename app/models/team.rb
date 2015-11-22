@@ -1,4 +1,5 @@
 class Team < ActiveRecord::Base
+    class Team < ActiveRecord::Base
     has_many :children, class_name: "Team", foreign_key: "father_id"
     belongs_to :father, class_name: "Category"
 
@@ -14,11 +15,13 @@ class Team < ActiveRecord::Base
     end
 
     def has_permission?(teamid, userid)
-    	retorno = false
-    	Team.find(teamid).roles.each do |role|
-			retorno = (retorno or role.has_permission?(role.id, userid))  		
-    	end
-    	return retorno
+        retorno = false
+        Team.find(teamid).roles.each do |role|
+            retorno = (retorno or role.has_permission?(role.id, userid))        
+        end
+        return retorno
     end
+
+end
 
 end
