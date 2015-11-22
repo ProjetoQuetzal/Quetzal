@@ -1,9 +1,15 @@
-<h1>Bem vindo, <% if current_user %>
-    <%= current_user.user_description.name %> !
-<% end %>
-</h1>
+<div id="main" class="container-fluid">
+    <h1>Bem vindo, <% if current_user %>
+            <%= current_user.user_description.name %> !
+        <% end %>
+    </h1>
+    <div id="top" class="row">
+       
+    </div>
 
-<table>
+    <hr/>
+    <div id="list" class="row">
+    <table>
     <tr>
         <th>Usuarios Cadastrados</th>
     </tr>
@@ -27,3 +33,4 @@
         </tr>
     <%end%>
 </table>
+</div>
