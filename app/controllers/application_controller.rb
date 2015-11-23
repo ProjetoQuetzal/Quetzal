@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
   #   redirect_to '/' unless current_user.member.admin?
   # end
 
-  def has_permission?(user, team, controller, action)
-    redirect_to '/logout' unless Operation.has_permission?(user.id, team, controller, action)
+  def has_permission?(user, resource, controller, action)
+    redirect_to '/logout' unless Operation.has_permission?(user.id, resource, controller, action)
   end
   
 

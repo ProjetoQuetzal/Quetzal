@@ -1,8 +1,9 @@
 class CreateOperations < ActiveRecord::Migration
   def change
     create_table :operations do |t|
-      t.string :controller
-      t.string :action
+		t.string :type
+		t.string :controller
+		t.string :action
 
       t.timestamps null: false
     end

@@ -1,24 +1,26 @@
 class Operation < ActiveRecord::Base
-	has_many :permissions
-	has_many :roles, :through => :permissions
 
-
-	def self.has_permission?(user, team, controller, action)
-		@operation = Operation.find_by(controller: controller, action: action)
-		if @operation
-				retorno = false
-				@operation.roles.where(team_id: team).each do |role|
-					retorno = (retorno or role.has_permission?(user))
-				end
-				return retorno
+	def self.has_permission?(user, resource, controller, action)
+		if user == 1
+			return true
 		end
+
+		if @operation = Operation.find_by(controller: controller, action: action)
+			if @operation.title == "OperationRole"
+					retorno = false
+
+					@operation.roles.where(team_id: team).each do |role|
+						retorno = (retorno or role.has_permission?(user))
+					end
+				return retorno
+			else
+				return User.find(user).has_permission?(resource, controller, action)
+			end
 		return false
+		end
 	end
 
 	def to_s
 		self.name
 	end
 end
-
-
- #<% @operation.roles.where("role_id < ?", 4).each do |role| %>

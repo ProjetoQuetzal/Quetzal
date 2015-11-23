@@ -4,9 +4,9 @@ class Role < ActiveRecord::Base
 
   has_many :assignments
   has_many :users, :through => :assignments
-  has_many :permissions
-  has_many :operations, :through => :permissions
-  
+  has_many :permissions, class_name: "PermissionRole"
+  has_many :operations, class_name: "OperationUser", :through => :permissions
+   
 
   belongs_to :team
 
