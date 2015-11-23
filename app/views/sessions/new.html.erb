@@ -1,0 +1,25 @@
+<div class="form">
+<div class="bkgd">
+<div class="title">
+<h1>Login</h1>
+</div>
+<%= form_for :login do |l| %>
+	<div class="row">
+		<div class="form-group col-md-2">
+			<label for=":email"><h4>E-mail</h4></label>
+			<input type="text" class="form-control" <%= l.text_field :email, :placeholder => "Insira o email" %> <br/>
+		</div>
+	
+		<div class="form-group col-md-2">
+			<label for=":password"><h4>Senha</h4></label>
+			<input type="password" class="form-control" <%= l.password_field :password, :placeholder => "Insira sua senha" %> <br/>
+		</div>
+		
+		<div class="col-md-12">
+   			<button type="submit"  a href="/login" class="btn btn-success">Login</button>
+	  <%= l.submit "Login" %>
+
+<% end %>
+</div>
+</div>
+</div>

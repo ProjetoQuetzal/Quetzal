@@ -54,23 +54,6 @@ class TeamsController < ApplicationController
     @role_mb << user
   end
 
-  def first_team
-    params[:father_id] ||= nil
-      @team = Team.new(team_params)
-      @role_adm = RoleAdministrator.new(title: "admin")
-      @role_mb = RoleMember.new(title: "member")
-      @role_obs = RoleObserver.new(title: "observer")
-      @team.roles << @role_adm
-      @team.roles << @role_mb
-      @team.roles << @role_obs
-      if @team.save
-          @user.roles << @role_adm
-          redirect_to '/index'
-      else
-          render "new"
-      end
-  end
-
 private
 
     def team_params
