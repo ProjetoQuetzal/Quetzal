@@ -10,6 +10,7 @@ class OperationsController < ApplicationController
 
 	def new
 		@operations = Operation.new
+		@roles = [Role.find(1), Role.find(2), Role.find(3)]
 	end
 
 	def edit
@@ -18,7 +19,19 @@ class OperationsController < ApplicationController
 	end
 
 	def create
-		@operation = Operation.new(params[:id])
+		params[:role_titles] ||= []
+		@operation = Operation.new(operation_params)
+
+		params[:role_titles].each do |title|
+	    	@operation.roles << Role.where(:title => title)
+	    end
+
+		if @operation.save
+			redirect_to :controller => 'operations', :action => 'index'
+		else
+			render "new"
+		end
+
 	end
 
 	def update
@@ -46,6 +59,6 @@ class OperationsController < ApplicationController
 private
 
   def operation_params
-      params.require(:operation).permit()
+      params.require(:operation).permit(:name)
   end
 end

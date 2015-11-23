@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   patch '/team:teamid/role:roleid' => 'roles#update'
 
   get '/operations' => 'operations#index'
+  get '/operations/new' => 'operations#new'
+  post '/operations/new' => 'operations#create'
   get '/operation/:id' => 'operations#show'
   get '/operation/:id/edit' => 'operations#edit'
   post '/operation/:id' => 'operations#update'
