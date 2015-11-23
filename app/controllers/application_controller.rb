@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def has_permission?(user, resource, controller, action)
+    if controller == 'users'
+      if action != 'edit'
+        return true
+      end
+    end
     redirect_to '/' unless Operation.has_permission?(user.id, resource, controller, action)
   end
   
