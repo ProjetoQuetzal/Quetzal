@@ -5,7 +5,7 @@ class RoleObserver < Role
 	end
 
 	def permit
-		self.operations << Óperation.find_by(controller: 'teams', action: 'show')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'show')
 		# projeto
 	end
 

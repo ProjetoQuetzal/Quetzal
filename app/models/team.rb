@@ -27,7 +27,7 @@ class Team < ActiveRecord::Base
 
 
     def permit_roles(roles)
-        roles.each do role
+        roles.each do |role|
             role.permit
         end
     end

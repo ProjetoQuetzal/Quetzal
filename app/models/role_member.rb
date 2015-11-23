@@ -6,10 +6,10 @@ class RoleMember < Role
 	end
 
 	def permit
-		self.operations << Óperation.find_by(controller: 'teams', action: 'new')
-		self.operations << Óperation.find_by(controller: 'teams', action: 'create')
-		self.operations << Óperation.find_by(controller: 'teams', action: 'edit')
-		self.operations << Óperation.find_by(controller: 'teams', action: 'update')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'new')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'create')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'edit')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'update')
 	end
 
 end

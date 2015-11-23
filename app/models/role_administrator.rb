@@ -6,13 +6,13 @@ class RoleAdministrator < Role
 	end
 
 	def permit
-		self.operations << Óperation.find_by(controller: 'teams', action: 'manage_roles')
-		self.operations << Óperation.find_by(controller: 'teams', action: 'destroy')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'manage_roles')
+		self.operation_roles << Operation.find_by(controller: 'teams', action: 'destroy')
 
-		self.operations << Óperation.find_by(controller: 'roles', action: 'index')
-		self.operations << Óperation.find_by(controller: 'roles', action: 'show')
-		self.operations << Óperation.find_by(controller: 'roles', action: 'edit')
-		self.operations << Óperation.find_by(controller: 'roles', action: 'update')
+		self.operation_roles << Operation.find_by(controller: 'roles', action: 'index')
+		self.operation_roles << Operation.find_by(controller: 'roles', action: 'show')
+		self.operation_roles << Operation.find_by(controller: 'roles', action: 'edit')
+		self.operation_roles << Operation.find_by(controller: 'roles', action: 'update')
 	end
   
 end

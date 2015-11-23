@@ -45,7 +45,12 @@ ActiveRecord::Schema.define(version: 20151123071925) do
   add_index "operations", ["controller"], name: "index_operations_on_controller"
 
   create_table "permission_roles", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "operation_role_id"
   end
+
+  add_index "permission_roles", ["operation_role_id"], name: "index_permission_roles_on_operation_role_id"
+  add_index "permission_roles", ["role_id"], name: "index_permission_roles_on_role_id"
 
   create_table "permission_users", force: :cascade do |t|
     t.integer "user_id"
