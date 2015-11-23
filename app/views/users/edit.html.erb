@@ -19,14 +19,33 @@
 </div>
 =======
 -->
-<h1>Edit User <%= @user.email %>!</h1>
+<div id="main" class="container-fluid" >
 
-<%= form_for(@user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+	<h1>Alterar senha</h1>
 
-  Email: <%= f.text_field :email %> <br/>
-  Password: <%= f.password_field :password %> <br/>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br/>
-  <%= f.submit "Save" %>
+	<div class="row">
+		<%= form_for(@user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+			<div class="form-group col-md-2">
+				<label for=":email"> Email </label>
+				<input type="text" class="form-control"  <%= f.email_field :email%>
+			</div>
 
-<% end %>
+			<div class="form-group col-md-2">
+				<label for=":password"> Nova senha </label>
+				<input type="password" class="form-control" <%= f.password_field :password%>
+			</div>
 
+			<div class="form-group col-md-2">
+				<label for=":password_confirmation"> Insira a senha novamente</label>
+				<input type="password" class="form-control" <%= f.password_field :password_confirmation %>
+			</div>
+
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-12">
+   				<button type="submit"  a href="Save" class="btn btn-success" style="margin-left: 20%;">Alterar senha </button>
+   			</div>
+   		<% end %>
+	</div>
+	
+</div>
