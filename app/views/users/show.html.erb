@@ -10,7 +10,7 @@
         Poxa, você deseja realmente excluir o seu perfil? :(
       </div>
       <div class="modal-footer">
-       <button type="button" class="btn btn-primary">Sim</button>
+       <button type="button" class="btn btn-primary" <%= link_to"Sim", controller: "users", action: "destroy", id:current_user.id %></button>
        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
       </div>
     </div>

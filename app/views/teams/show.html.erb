@@ -51,20 +51,20 @@
             <table class = "table table-striped">
             <thead>
                 <tr>
-                    <th>Papel na equipe:</th>
-                    <th>Usuários:</th>
+                    <% @team.roles.each do |r| %>
+                    <th><%=r.title%></th>   
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <% @team.roles.each do |r| %>
-                    <td><%=r.title%></td>                    
+                <tr>                  
                     <% r.users.each do |u| %>
-                    <td><%=u.user_description.name%></td>
-                <% end %>
+                    <td><%=u.user_description.name%> <%= u.user_description.last_name%></td>
                 </tr>
                 <% end %>
+               <tr>
+                <% end %>
+                </tr>
             </tbody>
             </table>
         </div>
