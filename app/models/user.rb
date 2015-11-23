@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 	has_many :assignments
 	has_many :roles, :through => :assignments
 
-	has_many :permissions, class_name: "PermissionUser"
-	has_many :operations, class_name: "OperationUser", :through => :permissions
+	has_many :permission_users
+	has_many :operation_users, :through => :permission_users
 
 	has_one :user_description
 	accepts_nested_attributes_for :user_description
@@ -23,9 +23,9 @@ class User < ActiveRecord::Base
 	end
 
 	def permit
-		self.operations << Operation.find_by(controller: 'users', action: 'show')
-		self.operations << Operation.find_by(controller: 'users', action: 'edit')
-		self.operations << Operation.find_by(controller: 'users', action: 'update')
+		self.operation_users << OperationUser.find_by(controller: 'users', action: 'show')
+		self.operation_users << OperationUser.find_by(controller: 'users', action: 'edit')
+		self.operation_users << OperationUser.find_by(controller: 'users', action: 'update')
 	end
 
 	def to_s

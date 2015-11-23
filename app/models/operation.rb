@@ -6,7 +6,7 @@ class Operation < ActiveRecord::Base
 		end
 
 		if @operation = Operation.find_by(controller: controller, action: action)
-			if @operation.title == "OperationRole"
+			if @operation.type == "OperationRole"
 					retorno = false
 
 					@operation.roles.where(team_id: team).each do |role|

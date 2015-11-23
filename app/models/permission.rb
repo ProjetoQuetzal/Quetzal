@@ -1,3 +1,3 @@
 class Permission < ActiveRecord::Base
-	belongs_to :operation
+	self.abstract_class = true
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123050302) do
+ActiveRecord::Schema.define(version: 20151123071925) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20151123050302) do
   end
 
   create_table "permission_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "operation_user_id"
+  end
+
+  add_index "permission_users", ["operation_user_id"], name: "index_permission_users_on_operation_user_id"
+  add_index "permission_users", ["user_id"], name: "index_permission_users_on_user_id"
+
+  create_table "permissions", force: :cascade do |t|
   end
 
   create_table "roles", force: :cascade do |t|

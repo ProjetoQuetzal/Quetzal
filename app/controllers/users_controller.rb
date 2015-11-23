@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user_description = @user.create_user_description(user_description_params)
     if @user.save
-      UserMailer.registration_confirmation(@user).deliver
+      #UserMailer.registration_confirmation(@user).deliver
       session[:user_id] = @user.id
       @user.permit
 
