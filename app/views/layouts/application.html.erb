@@ -35,19 +35,24 @@
         <li><a href="#">Contate-nos!</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <li><a class="glyphicon glyphicon-user" <%= link_to "Perfil", controller:"users", action:"edit", id:current_user.id %></span></li>
+      <% else %>
         <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <% end %>
         <li><a href="index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
+      <div id="main" class="container-fluid">
     			<% if current_user %>
-        			<%= link_to "Home", '/' %> | <%= current_user.email %> | <%= link_to "Edit", controller:"users", action:"edit", id:current_user.id %> | <%= link_to "Logout", '/logout' %>
+        			<%= link_to "Home", '/' %> | <%= current_user.email %> | <%= link_to "Trocar a senha", controller:"users", action:"edit", id:current_user.id %> | <%= link_to "Logout", '/logout' %>
     			<% else %>
         			<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
     			<% end %>
-
+          <hr/> 
 				<%= yield %>
-		
+      </div>
 </body>
 </html>

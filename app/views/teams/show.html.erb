@@ -1,24 +1,85 @@
-<h1> Controller: <%= @ctrl %> e action: <%= @act%> </h1>
 
+<div id="main" class="container-fluid">
+   <h2> Bem vindo à Equipe <text class="text-info"> <%=@team.name%></text> !</h2>
+    <div class="row">
+        <div class="form-group">
 
+            <div class="col-md-4">
+                <h4 class="text-success"><strong>Equipe: </strong></h4>
+                <p><h4><strong><%=@team.name%></strong></h4></p>
+                <p><a class="btn btn-info btn-sm" <%= link_to 'Editar Equipe', :action => 'edit', :teamid => @team.id %></a></p>
+            </div>
 
+            <div class="col-md-4">
+                <h4 class="text-success"><strong>Macro-Equipe: </strong></h4>
+                <p><h4><strong>Não possui</strong></h4></p>
+                <p><a class="btn btn-info btn-sm" href="#"> Visualizar Macro-Equipe</a></p>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="text-success"><strong>Projeto: </strong></h4>
+                <p><h4><strong> Não possui </strong></h4></p>
+                <p><a class="btn btn-info btn-sm" href="#">Editar Projeto</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="col-md-4"> 
+ <div class = "panel panel-info">
+      <div class = "panel-heading">
+         <h4 class = "panel-title"><strong>Membros da Equipe</strong>
+            <a data-toggle = "collapse" href = "#listaMembros">
+              <p><small>(Clique para encolher. Clique novamente para expandir.)</small></p>
+            </a>
+         </h4>
+      </div>
+      
+      <div id = "listaMembros" class = "panel-collapse collapse">
+         <div class = "panel-body">
+            <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>Papel na equipe:</th>
+                    <th>Usuários:</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <% @team.roles.each do |r| %>
+                    <td><%=r.title%></td>
+                    
+                    <% r.users.each do |u| %>
+                    <td><%=u.user_description.name%></td>
+                    <% end %>
+                    <% end %>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
+      
+   </div>
+</div>
+
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+   <div class = "panel panel-danger">
+      <div class = "panel-heading">
+         <h4 class = "panel-title"><strong>Sub Equipes</strong>
+            <a data-toggle = "collapse" href = "#listaEquipes">
+              <p><small>(Clique para expandir. Clique novamente para encolher.)</small></p>
+            </a>
+         </h4>
+      </div>
+      
+      <div id = "listaEquipes" class = "panel-collapse collapse">
+         <div class = "panel-body"> 
 <table>
     <tr>
-        <th>Equipe:</td>
-        <th>Projeto:</td>
-        <th>Equipe pai:</td>
-        <th><%= link_to 'Edit', :action => 'edit', :teamid => @team.id %></th>
-    </tr>
-
-    <tr>
-        <td><%=@team.name%></th>
-        <td>não possui</th>
-        <td>não possui</th>
-    </tr>
-</table>
-<table>
-    <tr>
-        <th>Equipes Filhas:</td>
+        <th>Equipes Alocadas à Equipe principal:</td>
     </tr>
     <!-- <tr>
         <th><%= link_to "adicionar equipe filha", '/teams/new' %></th>
@@ -29,26 +90,13 @@
     </tr>
     <% end %>
 </table>
+         </div>
+    </div>
 
-<table>
-    <tr>
-        <th>Papeis:</td>
-    </tr>
+</div>
 
-    <% @team.roles.each do |r| %>
-    <tr>
-        <td><%=r.title%></td>
-        <table>
-            <tr>
-                <th>Usuarios:</td>
-            </tr>
 
-            <% r.users.each do |u| %>
-            <tr>
-                <td><%=u.user_description.name%></td>
-            </tr>
-            <% end %>
-        </table>
-    </tr>
-    <% end %>
-</table>
+<script type = "text/javascript">
+   $(function () { $('#listaMembros').collapse('show')});
+   $(function () { $('#listaEquipes').collapse('hide')});
+  </script>  
