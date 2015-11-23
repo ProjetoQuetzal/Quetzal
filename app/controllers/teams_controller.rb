@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+    @father = params[:fatherid]
   end
 
   def create
@@ -13,6 +14,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     @team.create_roles
+
 
     if @team.save
       @user.roles << @team.roles.first

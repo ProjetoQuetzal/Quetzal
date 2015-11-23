@@ -5,6 +5,8 @@ class Team < ActiveRecord::Base
     has_many :roles
     has_many :users, -> {uniq}, through: :roles
 
+    has_one :project
+
 
     def to_s
         self.name
