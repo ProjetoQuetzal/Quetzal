@@ -2,8 +2,9 @@
 
 <%= form_for :operation, :action => 'create' do |f| %>
 
-	Name: <%= f.text_field :name %><br/>
-  <br>
+	Controller: <%= f.text_field :controller %><br/>
+  Action: <%= f.text_field :action %><br/>
+  <br/>
   <p>
     <div>
       <h4>Permissão</h4>

@@ -5,17 +5,6 @@ class Team < ActiveRecord::Base
     has_many :roles
     has_many :users, -> {uniq}, through: :roles
 
-    def update_roles
-
-    end
-
-    def has_permission?(teamid, userid)
-        retorno = false
-        Team.find(teamid).roles.each do |role|
-            retorno = (retorno or role.has_permission?(role.id, userid))        
-        end
-        return retorno
-    end
 
     def to_s
         self.name
@@ -33,6 +22,13 @@ class Team < ActiveRecord::Base
         self.roles << @role_mb
         self.roles << @role_obs
 
+        permit_roles([@role_adm, @role_mb, @role_obs])
     end
 
+
+    def permit_roles(roles)
+        roles.each do |role|
+            role.permit
+        end
+    end
 end

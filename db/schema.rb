@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122174632) do
+ActiveRecord::Schema.define(version: 20151123071925) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,23 +23,45 @@ ActiveRecord::Schema.define(version: 20151122174632) do
   add_index "assignments", ["role_id"], name: "index_assignments_on_role_id"
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
-  create_table "operations", force: :cascade do |t|
-    t.string   "name"
+  create_table "operation_teams", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "operations", ["name"], name: "index_operations_on_name"
-
-  create_table "permissions", force: :cascade do |t|
-    t.integer  "role_id"
-    t.integer  "operation_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "operation_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "permissions", ["operation_id"], name: "index_permissions_on_operation_id"
-  add_index "permissions", ["role_id"], name: "index_permissions_on_role_id"
+  create_table "operations", force: :cascade do |t|
+    t.string   "type"
+    t.string   "controller"
+    t.string   "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "operations", ["action"], name: "index_operations_on_action"
+  add_index "operations", ["controller"], name: "index_operations_on_controller"
+
+  create_table "permission_roles", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "operation_role_id"
+  end
+
+  add_index "permission_roles", ["operation_role_id"], name: "index_permission_roles_on_operation_role_id"
+  add_index "permission_roles", ["role_id"], name: "index_permission_roles_on_role_id"
+
+  create_table "permission_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "operation_user_id"
+  end
+
+  add_index "permission_users", ["operation_user_id"], name: "index_permission_users_on_operation_user_id"
+  add_index "permission_users", ["user_id"], name: "index_permission_users_on_user_id"
+
+  create_table "permissions", force: :cascade do |t|
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "type"

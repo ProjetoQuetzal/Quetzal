@@ -3,7 +3,7 @@
 
 <table>
 	<tr>
-		<td> <%= @operation.name %> </td>
+		<td> <%= @operation.controller %> <%= @operation.action %></td>
     	<td><%=link_to "edit", :controller => :operations, :action => :edit, :id => @operation.id %></td>
     </tr>
 </table>
