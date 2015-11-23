@@ -53,6 +53,11 @@ Rails.application.routes.draw do
   post '/users/:id' => 'users#update'
   patch '/users/:id' => 'users#update'
 
+
+  # get '/users/edit/:id' => 'users#edit_descp'
+  # post '/users/edit/:id' => 'users#update_descp'
+  # patch '/users/:id' => 'users#update_descp'
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

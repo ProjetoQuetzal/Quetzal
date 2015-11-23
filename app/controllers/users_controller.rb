@@ -50,13 +50,26 @@ class UsersController < ApplicationController
   end
 
 
-  private
+    # def edit_descp
+    #   @user_description = User.find(params[:id])
+    # end
+
+    # def update_descp
+    #   @user_description = User.find(params[:id])
+    #   if @user_description.update (user_params)
+    #     redirect_to :action => 'show', :id => @user_id
+    #   else
+    #       render 'edit_descp'
+    #   end
+    # end
+    
+private
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
   def user_description_params
-    params.require(:user_description).permit(:name, :last_name)
+    params.require(:user_description).permit(:name, :last_name, :date_of_birth, :registration, :phone_number, :address)
   end
 end

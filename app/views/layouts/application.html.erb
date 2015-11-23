@@ -36,11 +36,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        <li><a class="glyphicon glyphicon-user" <%= link_to "Perfil", controller:"users", action:"edit", id:current_user.id %></span></li>
+        <li><a class="glyphicon glyphicon-user" <%= link_to "Perfil", controller:"users", action:"show", id:current_user.id %></span></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       <% else %>
         <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <% end %>
-        <li><a href="index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
