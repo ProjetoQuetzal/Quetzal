@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action do has_permission?(current_user, params[:id], params[:controller], params[:action])
+  end
 
   def new
     @user = User.new

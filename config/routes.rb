@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/team:teamid/edit' => 'teams#edit'
   post '/team:teamid' => 'teams#update'
   patch '/team:teamid' => 'teams#update'
-  get '/team:teamid/manageroles' => 'teams#manageroles'
+  get '/team:teamid/manage_roles' => 'teams#manage_roles'
 
   get '/team:teamid/role:roleid' => 'roles#show'
   get '/team:teamid/role:roleid/edit' => 'roles#edit'

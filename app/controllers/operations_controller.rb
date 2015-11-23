@@ -1,4 +1,6 @@
 class OperationsController < ApplicationController
+	before_action do has_permission?(current_user, params[:teamid], params[:controller], params[:action])
+  	end
 
 	def index
 		@operations = Operation.all

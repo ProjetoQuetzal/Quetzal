@@ -9,7 +9,7 @@ class Operation < ActiveRecord::Base
 			if @operation.type == "OperationRole"
 					retorno = false
 
-					@operation.roles.where(team_id: team).each do |role|
+					@operation.roles.where(team_id: resource).each do |role|
 						retorno = (retorno or role.has_permission?(user))
 					end
 				return retorno

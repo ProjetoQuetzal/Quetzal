@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def has_permission?(user, resource, controller, action)
-    redirect_to '/logout' unless Operation.has_permission?(user.id, resource, controller, action)
+    redirect_to '/' unless Operation.has_permission?(user.id, resource, controller, action)
   end
   
 

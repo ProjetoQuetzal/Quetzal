@@ -1,5 +1,6 @@
 
 class SessionsController < ApplicationController
+  
 
   def start
     redirect_to :controller => 'sessions', :action => 'new'

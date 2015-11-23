@@ -1,4 +1,5 @@
-<h1>Gerenciando papeis e membros</h1>
+<h1><%@team%></h1>
+<h2>Gerenciar papéis e membros</h2>
 
 
 
@@ -6,17 +7,18 @@
     <tr>
         <th>Listando membros inscritos</th>
     </tr>
-
-    <% @team.roles.each do |role| %>
-        <tr>
+    <tr>
+    <td>
+        <% @team.roles.each do |role| %>
             <th>
-            Membros <%= role.title %>
+                Membros <%= role.title %>
             </th>
-    	<% role.users.each do |user| %>
-	        <tr>
-	           		<td><%= user.user_description.name %></td>
-	        </tr>
-		<%end%>
-        </tr>
-    <%end%>
+            <% role.users.each do |user| %>
+                <tr>
+                    <td><%= user.user_description.name %></td>
+                </tr>
+            <%end%>
+        <%end%>
+    </td>
+    </tr>
 </table>

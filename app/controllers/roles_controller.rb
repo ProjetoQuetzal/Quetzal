@@ -1,4 +1,6 @@
 class RolesController < ApplicationController
+  before_action do has_permission?(current_user, params[:teamid], params[:controller], params[:action])
+  end
 
   def index
     @roles = Role.all
@@ -25,7 +27,7 @@ class RolesController < ApplicationController
     params[:user_ids].each do |u|
     	@role.users << User.find(u)
     end
-    @role.team.update_roles
+
     if @role.save
       redirect_to :action => 'show', :roleid => @role.id
     else
