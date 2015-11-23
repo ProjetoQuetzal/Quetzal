@@ -4,45 +4,74 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+        <h4 class="modal-title" id="modalLabel">Excluir Perfil</h4>
       </div>
       <div class="modal-body">
-        Deseja realmente excluir este item?
+        Poxa, você deseja realmente excluir o seu perfil? :(
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Sim</button>
- <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+       <button type="button" class="btn btn-primary">Sim</button>
+       <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
       </div>
     </div>
   </div>
 </div>
 
-<hr/>
-<div class="form-group">
+ <div class="form-group">
     <legend class="text-danger">Dados do Perfil</legend>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <p class="text-success"><strong>Nome</strong></p>
         <p><%=@user.user_description.name%></p>
     </div> 
 
-    <div class="col-md-4">
+    <div class="col-md-3">
+        <p class="text-success"><strong>Sobrenome</strong></p>
+        <p><%=@user.user_description.last_name%></p>
+    </div>
+
+    <div class="col-md-3">
+      <p class="text-success"><strong>Data de nascimento</strong></p>
+      <p><%=@user.user_description.date_of_birth%></p>
+    </div>
+
+    <div class="col-md-3">
+      <p class="text-success"><strong>Matrícula</strong></p>
+      <p><%=@user.user_description.registration%></p>           
+    </div>
+
+    <div class="col-md-3">
+      <p class="text-success"><strong>Telefone</strong></p>
+      <p><%=@user.user_description.phone_number%></p>           
+    </div>
+
+    <div class="col-md-3">
+      <p class="text-success"><strong>Endereço</strong></p>
+      <p><%=@user.user_description.address%></p>           
+    </div>
+
+    <div class="col-md-3">
         <p class="text-success"><strong>E-mail</strong></p>
         <p><%=@user.email%></p>
     </div>
-
+  </div>
+  <div class="row">
+   <div class="col-md-12">
+   <hr />
+   </div>
     <div class="col-md-4">
      <p class="text-success"><strong>Equipes que participa</strong></p>
     </div>
+  </div>
 
-</div>
 
 <div id="actions" class="row">
 
  <div class="col-md-12">
  <hr/>
-  <a class="btn btn-warning" <%= link_to "Editar", controller:"users", action:"edit", id:current_user.id %></a>
-  <a href="/index" class="btn btn-info">Voltar</a>
-  <a href="#" class="btn btn-default" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+   <a href="/" class="btn btn-default">Voltar</a>
+  <a class="btn btn-primary" <%= link_to "Modificar senha", controller:"users", action:"edit", id:current_user.id %></a>
+  <a class="btn btn-info" <%= link_to "Editar Dados do Perfil", controller:"users", action:"edit_descp", id:current_user.id %></a>
+  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Excluir Perfil</a>
 
  </div>
 </div>

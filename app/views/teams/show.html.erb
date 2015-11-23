@@ -3,23 +3,34 @@
     <div class="row">
         <div class="form-group">
 
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <h4 class="text-success"><strong>Equipe: </strong></h4>
                 <p><h4><strong><%=@team.name%></strong></h4></p>
                 <p><a class="btn btn-info btn-sm" <%= link_to 'Editar Equipe', :action => 'edit', :teamid => @team.id %></a></p>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <br /><br /><br />
+              <a class="btn btn-primary  btn-sm" <%= link_to "Criar Sub Equipe", :controller => 'teams', :action => 'new'  %>
+
+            </div>
+
+            <div class="col-md-2">
                 <h4 class="text-success"><strong>Macro-Equipe: </strong></h4>
                 <p><h4><strong>Não possui</strong></h4></p>
                 <p><a class="btn btn-info btn-sm" href="#"> Visualizar Macro-Equipe</a></p>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <h4 class="text-success"><strong>Projeto: </strong></h4>
                 <p><h4><strong> Não possui </strong></h4></p>
                 <p><a class="btn btn-info btn-sm" href="#">Editar Projeto</a></p>
             </div>
+
+            <div class="col-md-3">
+              <br /><br /><br />
+              <a class="btn btn-primary  btn-sm" <%= link_to "Criar Projeto"%>
+            </div>            
         </div>
     </div>
 </div>
@@ -47,8 +58,7 @@
             <tbody>
                 <tr>
                     <% @team.roles.each do |r| %>
-                    <td><%=r.title%></td>
-                    
+                    <td><%=r.title%></td>                    
                     <% r.users.each do |u| %>
                     <td><%=u.user_description.name%></td>
                     <% end %>
@@ -63,6 +73,7 @@
 </div>
 
 <div class="col-md-4">
+
 </div>
 <div class="col-md-4">
    <div class = "panel panel-danger">
