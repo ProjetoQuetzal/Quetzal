@@ -44,6 +44,14 @@ Rails.application.routes.draw do
   post '/assignment/:id' => 'assignments#update'
   patch '/assignment/:id' => 'assignments#update'
 
+  get '/projects' => 'projects#index'
+  get '/team:teamid/project/new' => 'projects#new'
+  post '/team:teamid/projects/new' => 'projects#create'
+  get '/team:teamid/project:projectid' => 'projects#show'
+  get '/team:teamid/project:projectid/edit' => 'projects#edit'
+  post '/team:teamid/project:projectid' => 'projects#update'
+  patch '/team:teamid/project:projectid' => 'projects#update'
+
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

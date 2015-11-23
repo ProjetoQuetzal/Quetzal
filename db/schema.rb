@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123071925) do
+ActiveRecord::Schema.define(version: 20151123091131) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 20151123071925) do
 
   create_table "permissions", force: :cascade do |t|
   end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "team_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "projects", ["team_id"], name: "index_projects_on_team_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "type"
