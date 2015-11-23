@@ -59,6 +59,6 @@ class OperationsController < ApplicationController
 private
 
   def operation_params
-      params.require(:operation).permit(:name)
+      params.require(:operation).permit(:controller, :action)
   end
 end

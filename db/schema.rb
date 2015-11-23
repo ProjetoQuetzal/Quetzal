@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 20151122174632) do
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
   create_table "operations", force: :cascade do |t|
-    t.string   "name"
+    t.string   "controller"
+    t.string   "action"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "operations", ["name"], name: "index_operations_on_name"
+  add_index "operations", ["action"], name: "index_operations_on_action"
+  add_index "operations", ["controller"], name: "index_operations_on_controller"
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "role_id"

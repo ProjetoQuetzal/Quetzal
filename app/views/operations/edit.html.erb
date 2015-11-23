@@ -1,8 +1,9 @@
-<h1>Alterando a operacao <% @operation.name %></h1>
+<h1>Alterando a operacao <% @operation.controller %> <% @operation.action%></h1>
 
 <%= form_for(:operation, :url => {:action => 'update'}) do |f| %>
 
-	Name: <%= f.text_field :name %><br/>
+	Controller: <%= f.text_field :controller %><br/>
+  Action: <%= f.text_field :action %><br/>
 
   <p>
   	<% @roles.each do |role| %>

@@ -8,9 +8,15 @@
         <th>Operacoes</th>
     </tr>
 
+     <% @operations.each do |op| %>
     <tr>
-        <% @operations.each do |op| %>
-                <td><%= op.name%></td>
-            <% end %>
+       
+                <td>
+                	<%= link_to controller: "operations", action: "edit", id: op.id do %>
+                		<%= op.controller %> <%= op.action %>
+                	<% end %>
+                </td>
+            
     </tr>
+    <% end %>
 </table>

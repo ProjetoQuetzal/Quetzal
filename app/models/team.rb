@@ -9,14 +9,6 @@ class Team < ActiveRecord::Base
 
     end
 
-    def has_permission?(teamid, userid)
-        retorno = false
-        Team.find(teamid).roles.each do |role|
-            retorno = (retorno or role.has_permission?(role.id, userid))        
-        end
-        return retorno
-    end
-
     def to_s
         self.name
     end
