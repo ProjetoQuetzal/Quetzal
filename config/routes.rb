@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-  root to: 'sessions#new'
+  root to: 'sessions#start'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
