@@ -36,7 +36,7 @@
     </div>
 </div>
 <hr/>
-<div class="col-md-4"> 
+<div class="col-md-3"> 
  <div class = "panel panel-info">
       <div class = "panel-heading">
          <h4 class = "panel-title"><strong>Membros da Equipe</strong>
@@ -73,10 +73,14 @@
    </div>
 </div>
 
-<div class="col-md-4">
-
+<div class="col-md-3">
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
-<div class="col-md-4">
+<div class="col-md-3">
    <div class = "panel panel-danger">
       <div class = "panel-heading">
          <h4 class = "panel-title"><strong>Sub Equipes</strong>
@@ -97,15 +101,22 @@
     </tr> -->
     <% @team.children.each do |child| %>
     <tr>
-        <td><%=child.name%></th>
+        <td><%=child.name%></td>
     </tr>
     <% end %>
 </table>
          </div>
     </div>
-
 </div>
 
+</div>
+<div class="col-md-3">
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
 
 <script type = "text/javascript">
    $(function () { $('#listaMembros').collapse('show')});
